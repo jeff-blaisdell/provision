@@ -1,0 +1,13 @@
+{
+  "id": "mysql",
+  "service_name": "mysql",
+  "server_root_password": "foo",
+  "server_debian_password": "bar",
+  "data_dir": "/var/lib/mysql",
+  "port": "3306",
+  "user": {
+    "kaleido": {
+      "password": "password1"
+    }
+  }
+}
