@@ -33,9 +33,18 @@ gem source  --add https://rubygems.org/
 
 #Install Chef
 if [ ! `command -v chef` ]; then
+
+	# Resolve Chef Development Kit package.
 	if [ ! -f "$CHEF_DK" ]; then
-		curl -O $CHEF_DK_URL
+		# Look for pre-downloaded Chef Development Kit in Bootstrap directory.
+		if [ -f "/opt/vmbootstrap/chef/$CHEF_DK" ]; then
+			cp -f "/opt/vmbootstrap/chef/$CHEF_DK" "$CHEF_DK"
+		else
+			curl -O $CHEF_DK_URL
+		fi
 	fi
+
+	# Install Chef DK package.
 	dpkg -i $CHEF_DK
 fi
 
