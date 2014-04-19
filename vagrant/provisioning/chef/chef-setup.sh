@@ -33,7 +33,9 @@ gem source  --add https://rubygems.org/
 
 #Install Chef
 if [ ! `command -v chef` ]; then
-	curl -O $CHEF_DK_URL
+	if [ ! -f "$CHEF_DK" ]; then
+		curl -O $CHEF_DK_URL
+	fi
 	dpkg -i $CHEF_DK
 fi
 
