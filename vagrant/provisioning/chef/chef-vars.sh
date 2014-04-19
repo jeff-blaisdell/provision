@@ -8,8 +8,8 @@ CHEF_DK_URL="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_
 CHEFDIR="/opt/chef-solo"
 CHEFDATA="/mnt/chef-solo"
 
-CHEFSOLO="chef-solo"
-BERKS="berks"
+CHEFSOLO="/usr/bin/chef-solo"
+BERKS="/usr/bin/berks"
 
 CHEF_SOLO_CONFIG="$CHEFDIR/solo.rb"
 CHEF_RUNTIME_COOKBOOKS="$CHEFDATA/cookbooks"

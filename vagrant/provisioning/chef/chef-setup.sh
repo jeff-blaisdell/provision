@@ -59,7 +59,7 @@ rm -rf $CHEF_RUNTIME_COOKBOOKS
 cat > $CHEF_SOLO_CONFIG << EOF
 file_cache_path '$CHEF_FILE_CACHE'
 file_backup_path '$CHEF_FILE_BACKUP'
-cookbook_path '$CHEF_COOKBOOKS'
+cookbook_path '$CHEF_RUNTIME_COOKBOOKS'
 role_path '$CHEF_ROLES'
 data_bag_path '$CHEF_DATABAGS'
 EOF

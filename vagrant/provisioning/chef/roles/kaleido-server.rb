@@ -1,5 +1,5 @@
 name "kaleido-server"
 description "Kaleido server installation."
 run_list(
-  "recipe[kaleido::java]", "recipe[kaleido::mysql]", "recipe[kaleido::data]"
+  "recipe[kaleido::java]", "recipe[kaleido::mysql]"
 )
