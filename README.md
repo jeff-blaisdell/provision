@@ -23,6 +23,10 @@ git clone git@github.com:jeff-blaisdell/provision.git
 cd provision/
 cd sites/kaleido
 ```
+* Add a VM ( example below is Ubuntu 12.04 LTS)
+```
+vagrant box add precise64 http://files.vagrantup.com/precise64.box
+```
 
 * Startup Vagrant
 ```
