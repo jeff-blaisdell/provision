@@ -4,15 +4,13 @@ Provision
 A repository for Vagrant / Chef provision scripts.
 
 ### Directory Structure
+```
 .
-
 |
-
 |----- sites  ( Site specific configuration such as a Vagantfile. )
-
 |
-
 |----- vagrant ( Contains files related to provision a new server.  Such as Chef scripts. )
+```
 
 ### Installation
 
