@@ -9,7 +9,7 @@ A repository for Vagrant / Chef provision scripts.
 |
 |----- sites  ( Site specific configuration such as a Vagantfile. )
 |
-|----- vagrant ( Contains files related to provision a new server.  Such as Chef scripts. )
+|----- vagrant ( Contains files related to provisioning a new server.  Such as Chef scripts. )
 ```
 
 ### Installation
