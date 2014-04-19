@@ -21,7 +21,7 @@ A repository for Vagrant / Chef provision scripts.
 ```
 git clone git@github.com:jeff-blaisdell/provision.git
 cd provision/
-cd sites/kaleido
+cd boxes/kaleido
 ```
 * Add a VM ( example below is Ubuntu 12.04 LTS)
 ```
