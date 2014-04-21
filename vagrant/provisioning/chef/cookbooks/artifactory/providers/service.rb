@@ -59,11 +59,12 @@ def create_artifactory_service
 
   ##################
   src_artifact = "artifactory-#{node[:artifactory][:version]}"
+  dest_artifact = "artifactory"
   src_ext = "zip"
   src_filename = "#{src_artifact}.#{src_ext}"
   src_url = "http://superb-dca2.dl.sourceforge.net/project/artifactory/artifactory/#{node[:artifactory][:version]}/#{src_filename}"
   src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
-  extract_path = "#{node['artifactory']['application_dir']}"
+  extract_path = "/etc/opt/jfrog"
   ##################
 
   Chef::Log.info "Fetching Artifactory from [#{src_url}]..."
@@ -75,22 +76,26 @@ def create_artifactory_service
     mode 00644
   end
 
-#  bash 'extract_module' do
-#    cwd ::File.dirname(src_filepath)
-#    code <<-EOH
-#      mkdir -p #{extract_path}
-#      tar xzf #{src_filename} -C #{extract_path}
-#      mv #{extract_path}/*/* #{extract_path}/
-#      EOH
-#    not_if { ::File.exists?(extract_path) }
-#  end
+  bash 'extract_module' do
+    cwd ::File.dirname(src_filepath)
+    code <<-EOH
+      mkdir -p #{extract_path}
+      unzip #{src_filename} -d #{extract_path}
+      mv #{extract_path}/#{src_artifact} #{extract_path}/#{dest_artifact}
+      EOH
+    not_if { ::File.exists?(extract_path) }
+  end
 
-#  bash 'install_module' do
-#    cwd ::File.dirname(extract_path)
-#    code <<-EOH
-#      ./#{src_artifact}/bin/installService.sh #{node['artifactory']['user']}
-#      EOH
-#  end
+  bash 'install_module' do
+    cwd ::File.dirname(extract_path)
+    code <<-EOH
+      #{extract_path}/#{dest_artifact}/bin/installService.sh #{node['artifactory']['user']}
+      EOH
+  end
+
+  service "artifactory" do
+    action [ :enable, :start ]
+  end
 
 end
 
@@ -102,7 +107,6 @@ def delete_artifactory_service
   src_filename = "#{src_artifact}.#{src_ext}"
   src_url = "http://sourceforge.net/projects/artifactory/files/artifactory/#{node[:artifactory][:version]}/#{src_filename}/download"
   src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
-  extract_path = "#{node['artifactory']['application_dir']}"
   ##################
 
   bash 'install_module' do

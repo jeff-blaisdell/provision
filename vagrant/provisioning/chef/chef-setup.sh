@@ -21,6 +21,11 @@ if [ ! `command -v curl` ]; then
 	apt-get install -y curl
 fi
 
+#Install unzip
+if [ ! `command -v unzip` ]; then
+	apt-get install -y unzip
+fi
+
 #Install Ruby
 apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev
 update-alternatives --set ruby /usr/bin/ruby$RUBY_VERSION
