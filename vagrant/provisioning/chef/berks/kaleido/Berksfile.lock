@@ -1,9 +1,12 @@
 DEPENDENCIES
+  artifactory
+    path: ../../cookbooks/artifactory
   kaleido
     path: ../../cookbooks/kaleido
 
 GRAPH
   apt (2.3.8)
+  artifactory (0.1.0)
   aws (2.1.1)
   build-essential (2.0.0)
   database (2.1.6)
@@ -14,6 +17,7 @@ GRAPH
     xfs (>= 0.0.0)
   java (1.22.0)
   kaleido (0.1.0)
+    artifactory (>= 0.0.0)
     database (~> 2.1.6)
     java (~> 1.22.0)
     mysql (~> 5.1.8)
