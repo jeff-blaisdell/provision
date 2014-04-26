@@ -1,0 +1,26 @@
+## Basic reverse proxy server ##
+
+## Artifactory
+upstream artifactory {
+      server 192.168.70.4:8081;
+}
+
+## Start artifactory.kaleido.io ##
+server {
+    listen            80;
+    server_name  artifactory.kaleido.io;
+
+    access_log  /var/log/nginx/artifactory.kaleido.access.log;
+    error_log  /var/log/nginx/artifactory.kaleido.error.log;
+
+    ## send request back to artifactory installation ##
+    location / {
+     proxy_pass  http://artifactory;
+     proxy_redirect off;
+     proxy_buffering off;
+     proxy_set_header        Host            $host;
+     proxy_set_header        X-Real-IP       $remote_addr;
+     proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+   }
+}
+## End artifactory.kaleido.io ##

@@ -12,5 +12,6 @@ recipe "kaleido::java", "Installs Java."
 depends "java" , "~> 1.22.0"
 depends "mysql", "~> 5.1.8"
 depends "database", "~> 2.1.6"
+depends "nginx", "~> 2.6.2"
 depends "artifactory"
 

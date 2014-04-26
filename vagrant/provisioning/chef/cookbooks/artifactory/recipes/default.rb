@@ -1,8 +1,5 @@
-#
-# Cookbook Name:: artifactory
-# Recipe:: default
-#
-# Copyright (C) 2014 YOUR_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
+
+artifactory_service node['artifactory']['version'] do
+	user = node['artifactory']['user']
+	action :create
+end
