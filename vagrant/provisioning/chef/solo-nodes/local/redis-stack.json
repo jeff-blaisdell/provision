@@ -1,0 +1,8 @@
+{
+   "redis": {
+   	"env": "local"
+   },
+   "run_list": [
+            "role[redis-server]"
+    ]
+}

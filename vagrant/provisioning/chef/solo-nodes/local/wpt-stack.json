@@ -1,0 +1,9 @@
+{
+   "wpt": {
+   	"env": "local"
+   },
+   "run_list": [
+            "role[wpt-server]",
+            "role[wpt-test-agent]"
+    ]
+}

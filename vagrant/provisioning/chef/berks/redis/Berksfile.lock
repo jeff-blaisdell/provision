@@ -1,0 +1,10 @@
+DEPENDENCIES
+  redis
+    path: ../../cookbooks/redis
+
+GRAPH
+  redis (0.1.0)
+    redisio (~> 1.7.1)
+  redisio (1.7.1)
+    ulimit (>= 0.1.2)
+  ulimit (0.3.2)

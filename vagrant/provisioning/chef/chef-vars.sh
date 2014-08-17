@@ -1,8 +1,10 @@
 #!/usr/bin/bash
 
 RUBY_VERSION="1.9.1"
-CHEF_VERSION="11.12.2"
-CHEF_DK="chefdk_0.0.1-1_amd64.deb"
+#CHEF_VERSION="11.12.2"
+#CHEF_DK="chefdk_0.0.1-1_amd64.deb"
+CHEF_VERSION="11.14.0.rc.2"
+CHEF_DK="chefdk_0.2.0-2_amd64.deb"
 CHEF_DK_URL="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/$CHEF_DK"
 
 CHEFDIR="/opt/chef-solo"
